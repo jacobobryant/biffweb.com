@@ -1,7 +1,7 @@
-Should this just be a set of cljrun tasks?
+# biffweb.com
 
-- watch: start file watcher + netlify dev server
-- publish: deploy the netlify site
-- email [path] [email or list name]: send email
-- sync [optional name of something]: download your subscriber list + run other stuff to populate your local content
-- new [post/page/list]
+Content + source code for [biffweb.com](https://biffweb.com). Documentation is under `content/docs/`. Feel free to
+submit PRs for corrections.
+
+Made with [Platypub](https://github.com/jacobobryant/platypub/tree/lite). You can run the site locally with `clj -M:run
+watch`, but it requires some setup that I haven't documented yet.
