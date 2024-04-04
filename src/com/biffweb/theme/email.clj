@@ -1,6 +1,6 @@
 (ns com.biffweb.theme.email
-  (:require [lambdaisland.hiccup :as h]
-            [clojure.java.io :as io]))
+  (:require [clojure.java.io :as io]
+            [lambdaisland.hiccup :as-alias h]))
 
 (defn centered [& body]
   [:table

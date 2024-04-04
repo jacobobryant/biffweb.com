@@ -6,7 +6,7 @@
             [clojure.walk :as walk]
             [clojure.string :as str]
             [clojure.pprint :refer [pprint]]
-            [lambdaisland.hiccup :as h]))
+            [lambdaisland.hiccup :as-alias h]))
 
 (defn join [sep xs]
   (rest (mapcat vector (repeat sep) xs)))

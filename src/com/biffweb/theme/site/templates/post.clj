@@ -1,7 +1,7 @@
 (ns com.biffweb.theme.site.templates.post
   (:require [com.biffweb.theme.site.base :as base]
             [com.platypub.util :as common]
-            [lambdaisland.hiccup :as h]))
+            [lambdaisland.hiccup :as-alias h]))
 
 (defn render [{:keys [post site/timezone recaptcha/site-key] :as opts}]
   (base/base-html

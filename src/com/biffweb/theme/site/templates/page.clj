@@ -1,6 +1,6 @@
 (ns com.biffweb.theme.site.templates.page
   (:require [com.biffweb.theme.site.base :as base]
-            [lambdaisland.hiccup :as h]))
+            [lambdaisland.hiccup :as-alias h]))
 
 (defn render [{:keys [page] :as opts}]
   (base/base-html

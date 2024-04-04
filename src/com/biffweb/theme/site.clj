@@ -1,6 +1,5 @@
 (ns com.biffweb.theme.site
-  (:require [babashka.fs :as fs]
-            [clojure.java.io :as io]
+  (:require [clojure.java.io :as io]
             [com.platypub.util :as common]
             [com.biffweb.theme.site.templates.docs :as docs]
             [com.biffweb.theme.site.templates.landing :as landing]

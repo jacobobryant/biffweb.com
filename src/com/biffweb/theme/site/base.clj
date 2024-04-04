@@ -1,6 +1,5 @@
 (ns com.biffweb.theme.site.base
-  (:require [com.platypub.util :as common]
-            [lambdaisland.hiccup :as h]))
+  (:require [com.platypub.util :as common]))
 
 (def head
   [[:script {:src "https://unpkg.com/hyperscript.org@0.9.3"}]
