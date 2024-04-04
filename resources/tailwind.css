@@ -1,0 +1,96 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply mb-4;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2.5rem;
+  }
+
+  blockquote {
+    margin: 1.25em 0;
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: .25em solid #dfe2e5;
+  }
+
+  code, kbd, pre, samp {
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
+  }
+
+  .markdown-body blockquote {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .markdown-body pre {
+    @apply my-6;
+  }
+
+  .codeblock-highlight {
+    @apply text-yellow-300 font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply bg-blue-500 hover:bg-blue-700 text-center py-2 px-4 rounded disabled:opacity-50 text-white;
+  }
+}
+
+@layer utilities {
+  .link {
+    @apply text-indigo-600 hover:underline;
+  }
+
+  .code {
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  }
+
+  .roboto-slab-bold {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700;
+  }
+  .roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+.grecaptcha-badge { visibility: hidden; }
+
+.markdown-body .highlight pre, .markdown-body pre {
+  background-color: #2d2d2d;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.markdown-body img {
+  box-shadow: 0 0 5px 2px #0000004d;
+  margin: 2rem auto;
+}
+
+.token.inserted {
+  color: #7ec699;
+}
+
+.token.prefix.inserted {
+  user-select: none;
+}
+
+.token.deleted {
+  user-select: none;
+}

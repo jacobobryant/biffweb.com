@@ -1,0 +1,8 @@
+# Local Netlify folder
+.netlify
+node_modules
+.cpcache
+.nrepl-port
+public
+config.env
+/netlify/

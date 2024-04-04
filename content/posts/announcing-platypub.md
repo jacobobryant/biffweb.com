@@ -1,0 +1,37 @@
+---
+description: Platypub is meant to help people learn Biff, the Clojure web framework I made.
+tags:
+- biff
+slug: announcing-platypub
+title: 'Announcing Platypub: open-source blogging + newsletter tool'
+image: https://platypub.sfo3.cdn.digitaloceanspaces.com/fba3d840-4ca5-428c-9347-ecbaeba879a4
+published: 2022-06-20T13:15:28 PM
+content-type: html
+---
+
+<p>Today I'm making the first public release of <a href="https://github.com/jacobobryant/platypub">Platypub</a>, an open-source blogging + newsletter tool which I started developing on the side a few months ago. I've used Platypub to write this very announcement, along with the rest of <a href="https://biffweb.com">the website</a>. I've also built <a href="https://blog.thesample.ai/">another site</a> with it.</p>
+<p>My first motivation for building Platypub is because I wanted to have an open-source project that would help people learn <a href="https://biffweb.com/">Biff</a>, the Clojure web framework I made (Platypub is built with Biff). Since lots of programmers have blogs, I figured it might give people a nice opportunity to submit PRs to a real, working project they use themselves. At a minimum, it'll provide some source code to read.</p>
+<p>My second motivation<em>&mdash;</em>and the reason I picked this particular application to build<em>&mdash;</em>is that I'm scratching my own itch. I publish blog articles and newsletters in several different places using several different tools, and it was becoming unwieldy. I wanted a single publishing tool that would handle all my needs in one place. Something both convenient enough for non-technical users and yet with a theme system that provides the same level of flexibility you would have if you coded the site from scratch.</p>
+<p>That being said, Platypub is still very rough around the edges. It is not yet ready for non-technical users. I'm only releasing it now because it is ready for other people to hack on it. Indeed, I've intentionally restrained myself from putting too much work into it beyond the core functionality so that there's more low-hanging fruit for others to implement.</p>
+<p>If you'd like to give it a spin, see <a href="https://github.com/jacobobryant/platypub">the README</a>. I've made <a href="https://github.com/jacobobryant/platypub/issues">several issues</a> as well. If you're interested in hacking on a Biff project, feel free to take on one of those<em>&mdash;</em>or better yet, try using Platypub for a bit and then see what missing pieces you'd like to add. I'm happy to help you get started and provide code review. With this release out of the way, I'm also planning to start doing streamed pair programming sessions. At least two people have expressed interest already, so those might start soon. You can join <code>#biff</code> on Clojurians Slack and/or <a href="https://biffweb.com/newsletter/">the Biff newsletter</a> for announcements.</p>
+<h3>Architecture + some demo screenshots</h3>
+<p>Platypub includes a CMS and a theme system for rendering your websites and emails. For actually hosting the sites and sending the emails, Platypub integrates with Netlify and Mailgun. As such, you don't need to deploy Platypub to use it; you can just run it locally. You will need to get your own API keys for Netlify, Mailgun, and a couple other services.</p>
+<p>Eventually I'd like to host an instance of Platypub so anyone can use it without needing to set it up. It's designed so that a single instance can service multiple users, so offering a free plan will be feasible.</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/51dca603-81ff-4168-bf3d-6a0363180cd4"></p>
+<p><a href="https://www.tiny.cloud/">TinyMCE</a> is used for editing posts (no markdown, sorry! I prefer WYSIWYG. Also no block-based editing, thank goodness). If you add some S3 credentials to the config file, the editor will handle image uploads.</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/6c58672c-eecb-4bff-9019-d1dc55764b85"></p>
+<p>When you've finished writing a post, you can preview and publish it from the Sites page.</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/e1b8bbc5-7c6d-40ef-b982-67524b398f2e"></p>
+<p>You'll need to create at least one site first, which involves setting some configuration options. Some of these options are required for all sites, while some of them are additional options specified by the theme you select:</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/7eafb30f-1014-4f9c-8c2f-166f9b07bfcc" alt=""></p>
+<p>A theme is basically a script that reads in your posts and site configuration from an <code>input.edn</code> file and then spits out a set of static files. (<a href="https://github.com/jacobobryant/platypub/blob/e1a28ffa90d278c609b83c1d40d2dbe5cc593352/themes/default/render-site#L246">The default theme</a> is a Babashka script.) When you publish your site, those files are deployed to Netlify. If your site needs any backend functionality, the theme can output some serverless function code, which will also be hosted by Netlify. The default theme contains <a href="https://github.com/jacobobryant/platypub/blob/master/themes/default/netlify/functions/subscribe.js">one serverless function</a>, which powers the newsletter signup form:</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/27d3b740-abde-4a23-9692-6fa7d9ef394a"></p>
+<p>(<a href="https://blog.thesample.ai">The site shown above</a> uses the default theme, while the Biff website uses a custom theme.)</p>
+<p>This theme setup gives you a lot of flexibility, but it also means that before Platypub can be provided as a managed service, we need to come up with a way to <a href="https://github.com/jacobobryant/platypub/issues/21">run the theme code in a sandbox</a>.</p>
+<p>Themes work similarly for the newsletter side of things: the theme script reads in a specific post and then returns some HTML, which is sent out to your mailing list via Mailgun.</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/fe81a9e7-430c-47ed-885d-7cdd30d8df1d"></p>
+<p>We use Mailgun's <a href="https://documentation.mailgun.com/en/latest/api-mailinglists.html">mailing lists api</a> for managing subscribers' email addresses. That also means we can let Mailgun handle unsubscribe requests (though we should probably add another serverless function for that eventually, since Mailgun's unsubscribe page is ugly).</p>
+<p><img src="https://platypub.sfo3.cdn.digitaloceanspaces.com/15d86ced-57ba-487c-b191-356c9a1dd6df"></p>
+<p>At the moment, if you want to actually see your list of subscribers, you'll need to do it from the Mailgun dashboard. Similarly, you can set up a custom domain for your sites by going to Netlify.</p>
+<h3>Some bigger picture stuff</h3>
+<p>Last week I wrote about <a href="https://blog.thesample.ai/p/tfos/">a grand scheme</a> I have, which includes promoting a media ecosystem that consists of many separate, interchangeable services instead of a few giant social media monoliths. Platypub is part of that: it's a "publishing service," meant to complement other services for consumption, discussion, and aggregation (read the post for more explanation). Within that framing, I think there are lots of interesting things to be experimented with. I see Platypub as a vector for trying out these experiments.</p>

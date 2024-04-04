@@ -1,0 +1,33 @@
+---
+description: I've just released v1.8.0. See the release notes for upgrade instructions. The biggest change is to the way Biff handles config and tasks by default.
+slug: config-tasks-uberjars-oh-my
+title: 'v1.8.0: config, tasks, and uberjars'
+image: https://platypub.sfo3.cdn.digitaloceanspaces.com/8902f7ed-a562-4f72-ab64-f8aeacc5d6c7
+published: 2024-02-13T10:52:41 AM
+content-type: html
+---
+
+<p>I've just released v1.8.0. See the <a href="https://github.com/jacobobryant/biff/discussions/186">release notes</a> for upgrade instructions. The biggest change is to the way Biff handles config and tasks by default.</p>
+<p>Before I get into that, one quick announcement: I'll be <a href="https://www.meetup.com/London-Clojurians/events/297926307/">giving a presentation</a> at the London Clojurians meetup on March 5th. Most/all of the documentation I've written for Biff is goal-oriented; it tries to help you get stuff done. In this talk I'm planning to go over more of the behind the scenes stuff&mdash;the design decisions that you don't have to know about to be productive, but are interesting nonetheless.</p>
+<p>So, about that release:</p>
+<p><strong>Config</strong></p>
+<p>Config is now parsed by&nbsp;<a href="https://github.com/juxt/aero">Aero</a>, which makes it easier to decide which values you&rsquo;d like to be defined in environment variables and which ones should be hardcoded in <code>config.edn</code> (now located under the <code>resources</code> directory). <code>config.edn</code> is also checked into source by default now, and there&rsquo;s a new <code>config.env</code> file&mdash;similar to the old <code>secrets.env</code> file, but not just for secrets.</p>
+<p>These changes make it easier to deploy Biff in a variety of ways, since any config that you need to set at runtime can be set with standard environment variables instead of with a Clojure-specific <code>config.edn</code> file. It&rsquo;s also easier to work with open-source apps now since the amount of config/structure outside of source control is minimized. You can clone a Biff app repo and run the <code>dev</code> task without touching any config files, and a default <code>config.env</code> file will get generated for you.</p>
+<p><strong>Tasks</strong></p>
+<p>Tasks like <code>bb dev</code> and <code>bb deploy</code> are now implemented with plain Clojure instead of Babashka. Tasks are invoked with <code>clj -M:dev &lt;task name&gt;</code>, e.g.&nbsp;<code>clj -M:dev deploy</code>. This means tasks have a bit more startup time (1 - 2 seconds on my machines), but new Biff users are no longer required to install Babashka. This also makes some tasks easier to write since we have access to more libraries, not just those that are bb-compatible.</p>
+<p>Biff also defines a&nbsp;<a href="https://github.com/jacobobryant/biff/commit/fcb4ff343e442a42f47a968f4518a674b9a74a3b">general-purpose task runner</a> that could in theory be used in other projects&mdash;my attempt at making clj-based tasks fairly ergonomic, fast-ish, and reusable. Until Babashka starts getting bundled with <code>clj</code>, I think this is an area worth exploring. In fact, you could even use that task runner with Babashka. I might experiment with that if it turns out that some Biff users would benefit from quicker task startup time: tasks could be run with <code>clj</code> by default, but anyone who wants to could easily switch over to <code>bb</code> instead. For tasks that aren't bb-compatible, the task could be rewritten to check if it's running via <code>clj</code> or <code>bb</code>, and if it's the latter, the task could re-run itself in a&nbsp;<code>clj</code> subprocess.</p>
+<p>As it is, by far the most common task is the <code>dev</code> task which starts up the app with <code>clj</code> regardless, so startup time for that isn't affected.</p>
+<p><strong>Uberjar/Docker</strong></p>
+<p>There is a new <code>clj -M:dev uberjar</code> task which packages your app into an Uberjar. New projects also include a <code>Dockerfile</code>. Like the config changes, this makes it easier to deploy Biff apps in a variety of ways besides just the default approach of using DigitalOcean droplets. The default, non-uberjar/docker deployment path is still&nbsp; recommended for most people though.</p>
+<hr>
+<p>The config and task change changes are both optional: you can upgrade your Biff dependency but continue to use the old config format and bb tasks if you like. You can also upgrade to the new config format without switching from bb tasks to clj tasks. However, if you do switch to clj tasks, you must upgrade your config since the new clj tasks only recognize the new config format.</p>
+<p>And finally: I have also renamed Biff &ldquo;plugins&rdquo; to Biff &ldquo;modules.&rdquo; It turns out that &ldquo;plugins&rdquo; was confusing to some people because usually plugins are 3rd party extensions not related to core functionality. When I (re)named them to &ldquo;plugins&rdquo; (from &ldquo;features&rdquo; previously) I was only thinking about the architectural sense of &ldquo;what do you call the thing that you&mdash;ehrm&mdash;&lsquo;plug in&rsquo; to a framework?&rdquo; Either way, &ldquo;modules&rdquo; is an architecturally accurate term that has fewer potentially misleading connotations. I hope everyone likes the new term, because I'm not switching a third time.</p>
+<p><strong>Roadmap</strong></p>
+<p>Next on the TODO list, we have:</p>
+<ol>
+<li>Prepare for the London Clojurians meetup.</li>
+<li>Switch the default email provider from&nbsp;<a href="https://postmarkapp.com/">Postmark</a> to <a href="https://www.mailersend.com/">Mailersend</a> (the latter is cheaper and easier to set up).</li>
+<li>Several XTDB-related things: try using custom indexes for materialized views; start experimenting with XTDB v2; make some updates to <code>biff/submit-tx</code> and think about possible improvements to the transaction format&mdash;maybe even release it as a standalone lib that works with both XTDB v1 and v2.</li>
+<li>Experiment with Pathom (<a href="https://biffweb.com/p/fall-biff-updates/">discussed previously</a>). As I was updating the <a href="https://biffweb.com/docs/tutorial/build-a-chat-app/">eelchat tutorial</a> for this release, it struck me that even that simple app could benefit from Pathom.</li>
+<li>Improve the ergonomics for making complex forms with htmx&mdash;the kind of forms you might find in an enterprise SaaS (like, <em>say</em>, the one I work at).</li>
+</ol>

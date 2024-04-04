@@ -1,0 +1,29 @@
+{:site/theme com.biffweb.theme.site/render
+ :site/url "https://biffweb.com"
+ :site/title "Biff"
+ :site/description "A Clojure web framework for solo developers."
+ :site/image "https://platypub.sfo3.cdn.digitaloceanspaces.com/10e428a3-30b4-4ba7-bed8-f601f26ae543"
+ :site/redirects {"/docs/reference/project-structure/" "/docs/reference/architecture/"
+                  "/docs/reference/system-composition/" "/docs/reference/architecture/"
+                  "/docs/reference/authentication/" "/docs/reference/security/"
+                  "/docs/essays/why-i-like-clojure/" "/p/why-i-like-clojure/"
+                  "/p/how-to-use-re-frame-with-biff/" "/p/how-to-use-reframe-with-biff/"
+                  "/docs/get-started/should-you-use-biff/" "/p/should-you-use-biff/"
+                  "/docs/reference/bb-tasks/" "/docs/reference/tasks/"}
+ :site/primary-color "#1c1917"
+ :site/accent-color "#4338ca"
+ :site/author-name "Jacob O'Bryant"
+ :site/author-url "https://tfos.co"
+ :site/author-image-url "https://cdn.findka.com/profile.jpg"
+ :site/embed-html "<script defer data-domain=\"biffweb.com\" src=\"https://pl.tfos.co/js/script.js\"></script>"
+ :recaptcha/site-key "6Ld_WsEiAAAAAIU1RSSJcQTicXe98SZwqsf9xOlq"
+ :recaptcha/secret-key #secret RECAPTCHA_SECRET_KEY
+ :mailgun/api-key #secret MAILGUN_API_KEY
+ :mailgun/domain "m.platypub.com"
+ :netlify/api-key #secret NETLIFY_API_KEY
+ :site/timezone "America/Los_Angeles"
+ :list/address "4f4112b6-5043-4560-bb4f-09e7c66e247c@m.platypub.com"
+ :list/title "Biff: The Newsletter"
+ :list/reply-to "biffthenewsletter@jacobobryant.com"
+ :list/mailing-address "138 E 12300 S, Unit #654, Draper, UT 84020"
+ :email/theme com.biffweb.theme.email/render}

@@ -1,0 +1,21 @@
+---
+description: I have more-or-less an unlimited supply of ideas of web applications to create. If you're in the market for a new side project idea, here are a few suggestions that you're welcome to steal.
+tags:
+- nofeed
+slug: some-ideas
+title: Some ideas for web apps to build
+published: 2022-09-02T16:47:56 PM
+content-type: html
+---
+
+<p>I have more-or-less an unlimited supply of ideas of web applications to create (which is probably related to why I've ended up making Biff). One of my long-term career goals is to have enough influence to enlist other people in helping me to build out my ideas. If I can hit it out of the park with at least one business, then I can just hire people to build stuff. Otherwise maybe the open-source approach would work too. I'd love to even make an open-source funding organization like Clojurists Together but specifically for application software. If I end up getting a job, maybe I can provide a little seed funding for that.</p>
+<p>In the mean time, if you're in the market for a new side project idea, here are a few suggestions that you're welcome to steal:</p>
+<p><strong>A smart music playlist manager/recommender</strong></p>
+<p>One of my earlier startup attempts was a music player with a custom smart shuffle algorithm, but I overcomplicated it, didn't make enough progress, and pivoted after six months. I'm still sad about that since I love music but nevertheless end up listening to the same songs over and over again because it's the path of least resistance (and Spotify's/Pandora's algorithms don't work well for me).</p>
+<p>If I were to start over, I'd make a web app that connects to your Last.fm account and imports your listening history. Then it would do some fancy algorithm stuff to generate a handful of playlists, which could then be exported to Spotify. Then you'd refresh the playlists once a week, or something.</p>
+<p>Optional: for monetization, see if you're able to drive sales of <a href="https://bandcamp.com/">albums on Bandcamp</a>. If so, build some kind of auction-based ad system. (I'm doing basically the same thing <a href="https://thesample.ai/">with newsletters</a>.)</p>
+<p><strong>Podcast app for learning foreign languages</strong></p>
+<p>I spent two years living in Southeast Asia and kind of learned to speak Malay. However a lot of my time was spent in English speaking areas (like KL) with other native English speakers. I found the bottleneck on learning the language was having enough time to listen to native speakers talking so that my brain could learn to pick out the individual words and process them in real-time.</p>
+<p>So I think my ideal language learning app would take regular podcasts (i.e. not designed for language learning), add transcripts (both in the target language and in the learner's native language), and then some kind of interface to help you jump into listening while still learning the vocabulary gradually. For example, maybe it starts out by highlighting a few common words in the transcript like "the," and after you've learned to pick those out, it starts highlighting more words. That sort of thing.</p>
+<p><strong>Self-serve booking software for classified ads in newsletters</strong></p>
+<p>Over the past year or so I've spent a few thousand dollars on newsletter ads and about $10k on Facebook ads. I tended to get much better results from the newsletter ads, however newsletter advertising takes a lot more legwork. There are <a href="https://swapstack.co/">some companies</a> doing good stuff in this space, but I haven't seen any that just provide a simple booking tool for newsletter writers so that advertisers can buy ad slots without having to email the writer. This is especially important for buying ads in small newsletters. Buying a bunch of $30 ads isn't worth it if you have to send several emails back and forth with each writer. (See <a href="https://www.densediscovery.com/notes/DIY-ad-booking-system/">this post</a> for an example of a custom solution that someone built for his newsletter.)</p>
