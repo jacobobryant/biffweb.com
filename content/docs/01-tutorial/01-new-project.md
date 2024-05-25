@@ -2,7 +2,7 @@
 title: Start a new project
 ---
 
-[View the code for this section](https://github.com/jacobobryant/eelchat/commit/36cbd960304f2e0e6448ff9fcd989da5f1c76454).
+[View the code for this section](https://github.com/jacobobryant/eelchat/commit/b1e3b121f953e3f2eea04202a336f6c7f94829a2).
 
 As with any Biff project, we'll need to run the new project script. We'll add a
 `tutorial` argument so that your project will be based on the same version of

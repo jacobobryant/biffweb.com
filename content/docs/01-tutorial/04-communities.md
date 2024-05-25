@@ -2,7 +2,7 @@
 title: Communities
 ---
 
-[View the code for this section](https://github.com/jacobobryant/eelchat/commit/60f42d56c79a0f8fcb8b2b1e6b825ddc95c20cf1).
+[View the code for this section](https://github.com/jacobobryant/eelchat/commit/4fa46eeefb91d55bce4cdc09ef513fa9b3095226).
 
 Now that we have our landing page finished and deployed to production,
 let's add all the bare-minimum essential features as quickly as we can.

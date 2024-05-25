@@ -2,7 +2,7 @@
 title: Inbound RSS
 ---
 
-[View the code for this section](https://github.com/jacobobryant/eelchat/commit/6a0f3eeb84c081c6e29054007ff44ae5d44054ee).
+[View the code for this section](https://github.com/jacobobryant/eelchat/commit/6b271e3ee2c1286403faaadc5b028101a1695058).
 
 All of eelchat's core functionality is now in place. In this section, we'll add
 a nice-to-have: inbound RSS feeds. You can add RSS feeds to channels, and

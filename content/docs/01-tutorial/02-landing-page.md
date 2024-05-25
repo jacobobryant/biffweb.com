@@ -2,7 +2,7 @@
 title: Make a landing page
 ---
 
-[View the code for this section](https://github.com/jacobobryant/eelchat/commit/56f951a092fcac57c920123ce4918e94c5907978).
+[View the code for this section](https://github.com/jacobobryant/eelchat/commit/05dbf726e3f192fe69e18ff9ba51ce45f88aacdc).
 
 Now that we've stripped our app down to the essentials, let's start building it
 back up. For now we'll just do a little branding. The app won't do anything

@@ -2,7 +2,7 @@
 title: Channels
 ---
 
-[View the code for this section](https://github.com/jacobobryant/eelchat/commit/ef3ed9c45f36899b7c56a200f64cbcc943c598e1).
+[View the code for this section](https://github.com/jacobobryant/eelchat/commit/7016cd4c6fc5c081aacdfbb86627866b9d953225).
 
 Now that users can create and join communities, we're ready to let
 community admins create and delete channels. We'll start by adding a "New

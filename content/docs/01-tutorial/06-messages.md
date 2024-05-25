@@ -2,7 +2,7 @@
 title: Messages
 ---
 
-[View the code for this section](https://github.com/jacobobryant/eelchat/commit/fe2f8705b9ce9ae14c519aca8f2de7c393ad287f).
+[View the code for this section](https://github.com/jacobobryant/eelchat/commit/8d09635746c51da8a6baf8ab91af770f0fd3e72b).
 
 It's finally time to add the core feature of any discussion app: sending and
 receiving messages. We're going to update the `com.eelchat.ui/channel-page`
