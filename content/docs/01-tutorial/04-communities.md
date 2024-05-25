@@ -161,17 +161,18 @@ location to `/` instead of `/signin` while we're at it:
 -      {:status 303
 -       :headers {"location" "/signin?error=not-signed-in"}})))
 +  (fn [{:keys [biff/db session] :as ctx}]
-+    (if-some [user %%(xt/pull db%%
-+                            %%'[* {(:membership/_user {:as :user/memberships})%%
-+                                 %%[* {:membership/community [*]}]}]%%
-+                            %%(:uid session))%%]
-+      (handler (assoc ctx :user user))
-+      {:status 303
-+       :headers {"location" "/?error=not-signed-in"}})))
++    (let [user %%(xt/pull db%%
++                        %%'[* {(:membership/_user {:as :user/memberships})%%
++                             %%[* {:membership/community [*]}]}]%%
++                        %%(:uid session))%%]
++      (if (empty? user)
++        {:status 303
++         :headers {"location" "/?error=not-signed-in"}}
++        (handler (assoc ctx :user user))))))
 ```
 
 That `xt/pull` call is a little complex; you may want to read up on
-[XTDB pull queries](https://docs.xtdb.com/language-reference/datalog-queries/#pull).
+[XTDB pull queries](https://v1-docs.xtdb.com/language-reference/1.24.3/datalog-queries/#pull).
 Let's add a `pprint` call to the community page so you can see the result of the query:
 
 ```diff
