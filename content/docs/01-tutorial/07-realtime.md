@@ -183,6 +183,8 @@ new message to the author, we can remove the rendering bit from the
 whenever you sent a message, it would look like you sent it twice.
 
 ```diff
+;; src/com/eelchat/app.clj
+;; ...
  (defn new-message [{:keys [channel membership params] :as ctx}]
    (let [message {:xt/id (random-uuid)
               :message/membership (:xt/id membership)

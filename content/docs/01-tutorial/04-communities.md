@@ -161,14 +161,14 @@ location to `/` instead of `/signin` while we're at it:
 -      {:status 303
 -       :headers {"location" "/signin?error=not-signed-in"}})))
 +  (fn [{:keys [biff/db session] :as ctx}]
-+    (let [user %%(xt/pull db%%
-+                        %%'[* {(:membership/_user {:as :user/memberships})%%
-+                             %%[* {:membership/community [*]}]}]%%
-+                        %%(:uid session))%%]
-+      (if (empty? user)
-+        {:status 303
-+         :headers {"location" "/?error=not-signed-in"}}
-+        (handler (assoc ctx :user user))))))
++    (if-some [user (not-empty
++                    %%(xt/pull db%%
++                             %%'[* {(:membership/_user {:as :user/memberships})%%
++                                  %%[* {:membership/community [*]}]}]%%
++                             %%(:uid session))%%)]
++      (handler (assoc ctx :user user))
++      {:status 303
++       :headers {"location" "/?error=not-signed-in"}})))
 ```
 
 That `xt/pull` call is a little complex; you may want to read up on
@@ -207,45 +207,45 @@ Refresh the web page, and you should see something like this in your terminal:
 That gives us everything we need to render the application template.
 Go to `com.eelchat.ui` and add an `app-page` function:
 
-```clojure
+```diff
 ;; src/com/eelchat/ui.clj
  (ns com.eelchat.ui
    (:require [cheshire.core :as cheshire]
              [clojure.java.io :as io]
 +            [clojure.string :as str]
 ;; ...
-(defn app-page [{:keys [uri user] :as ctx} & body]
-  (base
-   ctx
-   [:.flex.bg-orange-50
-    [:.h-screen.w-80.p-3.pr-0.flex.flex-col.flex-grow
-     [:select
-      {:class '[text-sm
-                cursor-pointer
-                focus:border-teal-600
-                focus:ring-teal-600]
-       :onchange "window.location = this.value"}
-      [:option {:value "/app"}
-       "Select a community"]
-      (for [{:keys [membership/community]} (:user/memberships user)
-            :let [url (str "/community/" (:xt/id community))]]
-        [:option.cursor-pointer
-         {:value url
-          :selected (str/starts-with? uri url)}
-         (:community/title community)])]
-     [:.grow]
-     (biff/form
-      {:action "/community"}
-      [:button.btn.w-full {:type "submit"} "New community"])
-     [:.h-3]
-     [:.text-sm (:user/email user) " | "
-      (biff/form
-       {:action "/auth/signout"
-        :class "inline"}
-       [:button.text-teal-600.hover:text-teal-800 {:type "submit"}
-        "Sign out"])]]
-    [:.h-screen.w-full.p-3.flex.flex-col
-     body]]))
++(defn app-page [{:keys [uri user] :as ctx} & body]
++  (base
++   ctx
++   [:.flex.bg-orange-50
++    [:.h-screen.w-80.p-3.pr-0.flex.flex-col.flex-grow
++     [:select
++      {:class '[text-sm
++                cursor-pointer
++                focus:border-teal-600
++                focus:ring-teal-600]
++       :onchange "window.location = this.value"}
++      [:option {:value "/app"}
++       "Select a community"]
++      (for [{:keys [membership/community]} (:user/memberships user)
++            :let [url (str "/community/" (:xt/id community))]]
++        [:option.cursor-pointer
++         {:value url
++          :selected (str/starts-with? uri url)}
++         (:community/title community)])]
++     [:.grow]
++     (biff/form
++      {:action "/community"}
++      [:button.btn.w-full {:type "submit"} "New community"])
++     [:.h-3]
++     [:.text-sm (:user/email user) " | "
++      (biff/form
++       {:action "/auth/signout"
++        :class "inline"}
++       [:button.text-teal-600.hover:text-teal-800 {:type "submit"}
++        "Sign out"])]]
++    [:.h-screen.w-full.p-3.flex.flex-col
++     body]]))
 ```
 
 Then use the new function in `com.eelchat.app`:

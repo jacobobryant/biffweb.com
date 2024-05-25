@@ -18,10 +18,11 @@ have some data to start out with. Add the following function to `dev/repl.clj`:
 (defn seed-channels []
   (let [{:keys [biff/db] :as ctx} (get-context)]
     (biff/submit-tx ctx
-      (for [[membership channel] (q db
-                          '{:find [membership channel]
-                            :where [[membership :membership/community community]
-                                    [channel :channel/community community]]})]
+      (for [[membership channel]
+            (q db
+               '{:find [membership channel]
+                 :where [[membership :membership/community community]
+                         [channel :channel/community community]]})]
         {:db/doc-type :message
          :message/membership membership
          :message/channel channel
@@ -59,10 +60,10 @@ Now we can render the messages in `com.eelchat.app/channel-page`:
 +
 +(defn channel-page [{:keys [biff/db community channel] :as ctx}]
 +  (let [messages (q db
-+                '{:find (pull message [*])
-+                  :in [channel]
-+                  :where [[message :message/channel channel]]}
-+                (:xt/id channel))]
++                    '{:find (pull message [*])
++                      :in [channel]
++                      :where [[message :message/channel channel]]}
++                    (:xt/id channel))]
 +    (ui/app-page
 +     ctx
 +     [:.border.border-neutral-600.p-3.bg-white.grow.flex-1.overflow-y-auto#messages
