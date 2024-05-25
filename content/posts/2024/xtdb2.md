@@ -1,5 +1,5 @@
 ---
-title: 'Trying out XTDB2'
+title: 'Trying out XTDB v2'
 slug: trying-out-xtdb2
 description: I recently finished an experimental migration of the Biff starter app to use XTDB v2 instead of v1.
 image: /cards/xtdb2.png
@@ -26,21 +26,24 @@ namespace, containing a bunch of v2-related stuff. It mocks out all the v1 funct
 you can (and must) safely exclude v1 from your transitive dependencies:
 
 ```clojure
-{:deps {com.biffweb/biff       {...
-                                :exclusions [com.xtdb/xtdb-core
-                                             com.xtdb/xtdb-jdbc
-                                             com.xtdb/xtdb/rocksdb]}
-        com.biffweb/biff-xtdb2 {...}
+{:deps
+ {com.biffweb/biff {...
+                    :exclusions [com.xtdb/xtdb-core
+                                 com.xtdb/xtdb-jdbc
+                                 com.xtdb/xtdb/rocksdb]}
+  com.biffweb/biff-xtdb2 {...}
 ```
 
 `com.biffweb.xtdb` has a few different things in it. First, there's a `use-xtdb` Biff component:
 
 ```clojure
 (def biff-tx-fns
-  '{:biff/if-exists (fn [[query query-args] true-branch false-branch]
-                      (if (not-empty (q query {:args query-args}))
-                        true-branch
-                        false-branch))})
+  '{:biff/if-exists
+    (fn [[query query-args] true-branch false-branch]
+      (if (not-empty (q query {:args query-args}))
+        true-branch
+        false-branch))})
+
 
 (defn use-xtdb [ctx]
   (let [node (xt-node/start-node {})
@@ -72,16 +75,21 @@ is a lot simpler though (and extensible via multimethod!):
               on-doc map?
               set-doc [:maybe map?]
               defaults [:maybe map?])
-  (let [new-doc (merge {:xt/id (random-uuid)} set-doc defaults on-doc)
+  (let [new-doc (merge {:xt/id (random-uuid)}
+                       set-doc
+                       defaults
+                       on-doc)
         _ (check-table-schema table new-doc)
         on-keys (keys on-doc)
-        query (xt/template (-> (from ~table [~(bind-template on-keys)])
-                               (limit 1)))]
+        query (xt/template
+               (-> (from ~table [~(bind-template on-keys)])
+                   (limit 1)))]
     [[:call :biff/if-exists [query on-doc]
       (when (not-empty set-doc)
         [[:update {:table table
                    :bind [(bind-template on-keys)]
-                    ;; TODO try to pass in set-doc via args? does it even matter?
+                    ;; TODO try to pass in set-doc via args?
+                    ;; does it even matter?
                    :set set-doc}
           on-doc]])
       [[:put-docs table new-doc]]]]))
@@ -167,8 +175,11 @@ XTQL/Biff's custom operations for transactions, and only use SQL if desired for.
 Querying with SQL is similarly convenient:
 
 ```clojure
-(xt/q node "SELECT * FROM user WHERE user.xt$id = ?" {:args [(:uid session)]})
-(xt/q node '(-> (from :user [*]) (where (= xt$id $uid))) {:args session})
+(xt/q node "SELECT * FROM user WHERE user.xt$id = ?"
+      {:args [(:uid session)]})
+(xt/q node '(-> (from :user [*]) (where (= xt$id $uid)))
+      {:args session})
+
 ```
 
 For simple queries like this one, `com.biffweb.xtdb` has a couple convenience functions like `(lookup node :user :email
