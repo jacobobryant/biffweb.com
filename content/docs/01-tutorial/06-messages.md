@@ -125,7 +125,7 @@ Update `community` to be like this:
 (defn community [{:keys [biff/db user community membership] :as ctx}]
   (ui/app-page
    ctx
-   (if (seq membership)
+   (if (not-empty membership)
      [:<>
       [:.border.border-neutral-600.p-3.bg-white.grow
        "Messages window"]
