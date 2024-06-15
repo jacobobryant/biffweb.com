@@ -12,7 +12,7 @@ with some text after it's clicked:
 (defn page [request]
   [:html
    [:head
-    [:script {:src "https://unpkg.com/htmx.org@1.9.0"}]]
+    [:script {:src "https://unpkg.com/htmx.org@1.9.12"}]]
    ...
    [:form {:hx-post "/click" :hx-swap "outerHTML"}
     [:button {:type "submit"} "Don't click this button"]
@@ -37,8 +37,8 @@ You can also use htmx to establish websocket connections:
 (defn chat-page [request]
   [:html
    [:head
-    [:script {:src "https://unpkg.com/htmx.org@1.9.0"}]
-    [:script {:src "https://unpkg.com/htmx.org/dist/ext/ws.js"}]]
+    [:script {:src "https://unpkg.com/htmx.org@1.9.12"}]
+    [:script {:src "https://unpkg.com/htmx.org@1.9.12/dist/ext/ws.js"}]]
    ...
    [:div {:hx-ext "ws" :ws-connect "/app/chat"}
     [:div#messages]
