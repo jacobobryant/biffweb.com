@@ -10,11 +10,7 @@ Requirements:
 Run this command to create a new Biff project:
 
 ```bash
-# Linux/Mac:
 clj -M -e '(load-string (slurp "https://biffweb.com/new.clj"))'
-
-# Windows (Powershell):
-clj -M -e '(load-string (slurp ""https://biffweb.com/new.clj""))'
 ```
 
 This will create a minimal CRUD app which demonstrates most of Biff's features.

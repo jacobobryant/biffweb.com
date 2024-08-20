@@ -1,6 +1,7 @@
 (ns com.biffweb.theme.email
   (:require [clojure.java.io :as io]
-            [lambdaisland.hiccup :as-alias h]))
+            [lambdaisland.hiccup :as h]
+            [clojure.java.shell :as sh]))
 
 (defn centered [& body]
   [:table
@@ -9,7 +10,8 @@
     :align "center",
     :cellspacing "0"
     :style {:width "100%"
-            :max-width "600px"}}
+            :max-width "600px"
+            :height "auto"}}
    [:tr
     [:td
      [:table
@@ -20,7 +22,7 @@
 (defn space [px]
   [:div {:style {:height (str px "px")}}])
 
-(defn render [{:keys [site/url post list/mailing-address] list-title :list/title}]
+(defn render* [{:keys [site/url post list/mailing-address] list-title :list/title}]
   [:html
    [:head
     [:title (:title post)]
@@ -48,3 +50,15 @@
         mailing-address ". "
         [:a {:href "%mailing_list_unsubscribe_url%"} "Unsubscribe"] "."]]]
      (space 32))]])
+
+(defn juice [html]
+  (let [{:keys [out exit err]} (sh/sh "npx" "juice"
+                                      "--web-resources-images" "false"
+                                      "--web-resources-scripts" "false"
+                                      "/dev/stdin" "/dev/stdout" :in html)]
+    (if (= exit 0)
+      out
+      (throw (ex-info err {})))))
+
+(defn render [opts]
+  (juice (h/render (render* opts))))

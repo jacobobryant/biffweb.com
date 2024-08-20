@@ -25,4 +25,4 @@
                                                  :render-post post/render
                                                  :render-page page/render
                                                  :render-card card/render
-                                                 :render-email email/render}))))
+                                                 :render-email email/render*}))))

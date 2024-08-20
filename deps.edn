@@ -1,3 +1,4 @@
 {:paths ["src" "resources"]
- :deps {com.platypub/platypub {:git/url "https://github.com/jacobobryant/platypub" :git/tag "v1.0.0" :git/sha "165755d"}}
+ :deps {com.platypub/platypub {:local/root "../platypub-lite"}
+        #_{:git/url "https://github.com/jacobobryant/platypub" :git/tag "v1.0.0" :git/sha "165755d"}}
  :aliases {:run {:main-opts ["-m" "com.biffweb.cljrun" "com.platypub.cli/tasks"]}}}

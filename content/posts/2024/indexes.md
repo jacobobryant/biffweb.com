@@ -6,7 +6,7 @@ image: /cards/indexes-prerelease.png
 published: 2024-06-19T05:50:00 PM
 ---
 
-<!-- *Quick pre-announcement: I got my ticket for the conj! Come say hi if you'll be there. I'll be one of the ponytailed dudes.* -->
+*Quick pre-announcement: I got my ticket for the conj! Come say hi if you'll be there. I'll be one of the ponytailed dudes.*
 
 I just finished adding support for a new "indexes" feature. This makes it easy to create materialized
 views/derivations/denormalizations of the data in your main XT database so you can query for things faster&mdash;it
@@ -59,8 +59,8 @@ commit](https://github.com/jacobobryant/biff/commit/2e253115906f90713c25abb62594
 looks in the starter app (I made two indexes and displayed their results in the web app) and [this
 commit](https://github.com/jacobobryant/biff/commit/e070f723fe2e87d63c736364ad2a078099d0930c) if you're interested in
 the implementation. If you'd like to play around with it, you can either update your Biff
-version to `com.biffweb/biff {:git/url "https://github.com/jacobobryant/biff", :git/sha
-"2e253115906f90713c25abb62594dff567af6866"}`, or create a new project with `clj -M -e '(load-string (slurp
+version to <code style="word-wrap:anywhere;">com.biffweb/biff {:git/url "https://github.com/jacobobryant/biff", :git/sha
+"2e253115906f90713c25abb62594dff567af6866"}</code>, or create a new project with `clj -M -e '(load-string (slurp
 "https://biffweb.com/new.clj"))' -M indexes`. Just be aware that since this is a pre-release, there may be breaking
 changes.
 
