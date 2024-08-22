@@ -23,6 +23,7 @@ content-type: html
 <li><a href="https://gist.github.com/jacobobryant/02de6c2b3a1dae7c86737a2610311a3a">Upload images to S3</a></li>
 <li><a href="https://gist.github.com/jacobobryant/14834ada08b00242b28c2b36f4c0225d">Add a toggle button for dark mode</a></li>
 <li><a href="https://gist.github.com/jacobobryant/24f35658a7a7fe6b63963a5eaa3acbbf">Make Cider use `bb dev` to start the REPL</a></li>
+<li><a href="https://biffweb.com/p/how-to-set-cookies-on-get/">Set cookies on GET requests</a></li>
 </ul>
 <h3>Videos</h3>
 <ul>
