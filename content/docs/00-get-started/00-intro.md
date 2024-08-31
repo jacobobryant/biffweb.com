@@ -17,7 +17,7 @@ See also: [Should you use Biff?](https://biffweb.com/p/should-you-use-biff/)
 
 ## About
 
-Biff is developed by myself, [Jacob O'Bryant](https://tfos.co). I started it while I was a full-time entrepreneur,
+Biff is developed by myself, [Jacob O'Bryant](https://obryant.dev). I started it while I was a full-time entrepreneur,
 working on apps like [Yakread](https://yakread.com/) and [The Sample](https://thesample.ai/) (each of which is built
 with Biff and has 10-15k lines of code). See r/Clojure for
 [comments about Biff](https://www.reddit.com/r/Clojure/search/?q=biff&restrict_sr=1&type=comment).
@@ -33,4 +33,4 @@ multiple grants from [Clojurists Together](https://www.clojuriststogether.org/).
   [GitHub Discussions](https://github.com/jacobobryant/biff/discussions).
 - New to Clojure? Here's [an opinionated list of excellent Clojure learning materials](https://gist.github.com/ssrihari/0bf159afb781eef7cc552a1a0b17786f).
 - Read Biff's source [on GitHub](https://github.com/jacobobryant/biff).
-- For info about consulting, send me an email: <hello@tfos.co>.
+- For info about consulting, send me an email: <hello@obryant.dev>.

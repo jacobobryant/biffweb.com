@@ -29,7 +29,7 @@
   }
 
   code, kbd, pre, samp {
-    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   }
 
   .markdown-body blockquote {
@@ -93,4 +93,8 @@
 
 .token.deleted {
   user-select: none;
+}
+
+.markdown-body code {
+  white-space: nowrap;
 }
