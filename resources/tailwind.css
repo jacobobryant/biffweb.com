@@ -94,7 +94,3 @@
 .token.deleted {
   user-select: none;
 }
-
-.markdown-body code {
-  white-space: nowrap;
-}

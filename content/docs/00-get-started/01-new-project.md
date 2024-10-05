@@ -12,7 +12,7 @@ Run this command to create a new Biff project:
 ```bash
 clj -M -e '(load-string (slurp "https://biffweb.com/new.clj"))'
 
-# In some versions of PowerShell, you may need escape the quotes:
+# In some versions of PowerShell, you may need to escape the quotes:
 clj -M -e '(load-string (slurp ""https://biffweb.com/new.clj""))'
 ```
 
