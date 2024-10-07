@@ -13,7 +13,7 @@
  :site/primary-color "#1c1917"
  :site/accent-color "#4338ca"
  :site/author-name "Jacob O'Bryant"
- :site/author-url "https://tfos.co"
+ :site/author-url "https://obryant.dev"
  :site/author-image-url "https://cdn.findka.com/profile.jpg"
  :site/embed-html "<script defer data-domain=\"biffweb.com\" src=\"https://pl.tfos.co/js/script.js\"></script>"
  :recaptcha/site-key "6Ld_WsEiAAAAAIU1RSSJcQTicXe98SZwqsf9xOlq"

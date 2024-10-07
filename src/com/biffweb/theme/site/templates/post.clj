@@ -20,7 +20,7 @@
       [:div.h-10]
       [:p.text-center.text-sm
        [:em "Published by "
-        [:a {:href "https://tfos.co"} "Jacob O'Bryant"]
+        [:a {:href "https://obryant.dev"} "Jacob O'Bryant"]
         " on "
         (common/format-date (:published post) "d MMM yyyy" timezone)]]]]
     (base/subscribe-form-mild {:sitekey site-key

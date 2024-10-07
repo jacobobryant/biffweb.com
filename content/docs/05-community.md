@@ -5,7 +5,7 @@ description: Apps and libraries made by the Biff community.
 content-type: html
 ---
 
-<p>This is a list of public apps and libraries that have been built by the Biff community. If you've made something with/for Biff, <a href="https://forum.tfos.co">post a link</a>!</p>
+<p>This is a list of public apps and libraries that have been built by the Biff community. If you've made something with/for Biff, send me a link.</p>
 <ul>
 <li><a href="https://github.com/momerath42/biff-plugins-auth">com.ractiveware/biff-plugins-auth</a>: "third-party auth plugins for biff; currently one monolith with optional password and invite-code support"</li>
 <li><a href="https://termsoverload.com/">Terms Overload</a>: "Ask questions about your favorite Terms and Conditions of online webpages!"</li>
