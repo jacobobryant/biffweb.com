@@ -26,8 +26,7 @@ enter a URL into a form, then this handler:
    {:name :app.subscriptions.add/rss
     :post
     (fn [{:keys [session
-                 params
-                 biff.chain/state]
+                 params]
           :as ctx}]
       (let [url (lib.rss/fix-url (:url params))
             http-response (http/get url {"User-Agent" "https://yakread.com"})
