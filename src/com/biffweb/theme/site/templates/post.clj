@@ -16,12 +16,11 @@
                "max-w-prose")}
      [:div.bg-white.p-4.markdown-body
       [:h1 (:title post)]
-      [:div [::h/unsafe-html (:html post)]]
-      [:div.h-10]
-      [:p.text-center.text-sm
-       [:em "Published by "
+      [:p.text-sm
         [:a {:href "https://obryant.dev"} "Jacob O'Bryant"]
-        " on "
-        (common/format-date (:published post) "d MMM yyyy" timezone)]]]]
+        " | "
+        (common/format-date (:published post) "d MMM yyyy" timezone)]
+      [:div.h-2]
+      [:div [::h/unsafe-html (:html post)]]]]
     (base/subscribe-form-mild {:sitekey site-key
                                :show-disclosure true})]))
