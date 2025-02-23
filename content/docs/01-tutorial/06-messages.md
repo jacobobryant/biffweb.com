@@ -116,6 +116,33 @@ the community:
           :headers {"Location" (str "/community/" (:xt/id community))}}))))
 ```
 
+With the update to `wrap-community`, we can also simplify `community` to make use of `membership`.
+Update `community` to be like this:
+
+```diff
+;; src/com/eelchat/app.clj
+;; ...
+(defn community [{:keys [biff/db user community membership] :as ctx}]
+  (ui/app-page
+   ctx
+   (if (not-empty membership)
+     [:<>
+      [:.border.border-neutral-600.p-3.bg-white.grow
+       "Messages window"]
+      [:.h-3]
+      [:.border.border-neutral-600.p-3.h-28.bg-white
+       "Compose window"]]
+     [:<>
+      [:.grow]
+      [:h1.text-3xl.text-center (:community/title community)]
+      [:.h-6]
+      (biff/form
+       {:action (str "/community/" (:xt/id community) "/join")
+        :class "flex justify-center"}
+       [:button.btn {:type "submit"} "Join this community"])
+      [:div {:class "grow-[1.75]"}]])))
+```
+
 Now we can add the new message text box. We'll use htmx to insert new messages
 into the page without doing a full page reload, and we'll use hyperscript to
 keep the message window scrolled to the bottom whenever there's a new message:
