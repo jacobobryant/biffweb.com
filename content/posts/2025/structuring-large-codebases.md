@@ -3,9 +3,7 @@ title: Structuring large Clojure codebases with Biff
 description: I've been rewriting my reading app from scratch and open-sourcing it in the progress. I'm using it to experiment with new Biff features.
 slug: structuring-large-codebases
 image: https://biffweb.com/cards/structuring.png
-published: 2025-01-28T10:30:00 AM
-tags:
-- unlisted
+published: 2025-01-28T12:15:00 PM
 ---
 
 <!-- email
@@ -26,7 +24,7 @@ high-quality articles per year than making a couple mediocre videos per month.
 I'm also trying to write said articles with both Clojure and non-Clojure
 audiences in mind (gotta get that HN karma).
 
-So here's the first article. Hope you like it.
+So here's the first article. You can also [read it on the web](https://biffweb.com/p/structuring-large-codebases/).
 
 &ndash;[Jacob](https://obryant.dev)
 
