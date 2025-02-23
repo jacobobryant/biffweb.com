@@ -168,7 +168,8 @@ location to `/` instead of `/signin` while we're at it:
 +                             %%(:uid session))%%)]
 +      (handler (assoc ctx :user user))
 +      {:status 303
-+       :headers {"location" "/?error=not-signed-in"}})))
++       :headers {"location" "/?error=not-signed-in"}
++       :session (dissoc session :uid)})))
 ```
 
 That `xt/pull` call is a little complex; you may want to read up on
