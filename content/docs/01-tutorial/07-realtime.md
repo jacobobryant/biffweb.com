@@ -192,10 +192,9 @@ whenever you sent a message, it would look like you sent it twice.
               :message/created-at (java.util.Date.)
               :message/text (:text params)}]
      (biff/submit-tx (assoc ctx :biff.xtdb/retry false)
-       (concat [(assoc message :db/doc-type :message)]
-               (command-tx ctx)))
--    (message-view message)))
-+    [:<>]))
+       [(assoc message :db/doc-type :message)])
+ -    (message-view message)))
+ +    [:<>]))
 ```
 
 Try it out!

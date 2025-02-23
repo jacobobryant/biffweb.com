@@ -210,9 +210,9 @@ do a little finagling to make the icon vertically aligned:
              [com.eelchat.settings :as settings]
 +            [com.eelchat.ui.icons :refer [icon]]
 ;; ...
-(defn app-page [{:keys [biff/db uri user community roles channel] :as ctxs} & body]
+(defn app-page [{:keys [biff/db uri user community roles channel] :as ctx} & body]
    (base
-    ctxs
+    ctx
     [:.flex.bg-orange-50
 +    {:hx-headers (cheshire/generate-string
 +                  {:x-csrf-token csrf/*anti-forgery-token*})}
