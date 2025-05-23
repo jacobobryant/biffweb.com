@@ -18,6 +18,7 @@ productive with and deepen your understanding of Biff. Contributions welcome.
 
 *   [Use Postgres instead of XTDB](https://biffweb.com/p/how-to-use-postgres-with-biff/)
 *   [Use Datomic instead of XTDB](https://github.com/sigvesn/biff-datomic-starter)
+*   [Use Datalevin instead of XTDB](https://github.com/sigvesn/biff-datalevin-starter)
 *   [Use re-frame instead of htmx](https://biffweb.com/p/how-to-use-re-frame-with-biff/)
 *   [Use the Stripe API](https://gist.github.com/jacobobryant/c133a95efb6304b9e32610869acb4116)
 *   [Start a Stripe checkout session with the Java SDK](https://gist.github.com/laheadle/a6b5f4c6df3218a586a9a043c1de18aa)
