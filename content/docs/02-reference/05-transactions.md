@@ -266,5 +266,5 @@ the user document doesn't already exist:
 See also:
 
  - [`submit-tx`](/docs/api/xtdb/#submit-tx)
- - [XTDB learning resources](https://xtdb.com/learn/)
+ - [XTDB learning resources](https://xtdb.com/learn)
  - [XTDB transaction reference](https://v1-docs.xtdb.com/language-reference/datalog-transactions/)
