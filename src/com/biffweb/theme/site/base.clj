@@ -19,8 +19,16 @@
    [:link {:rel "stylesheet" :href "/vendor/cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"}]
    [:script {:src "/js/prism.js"}]])
 
+(def announcement-banner
+  [:div.bg-indigo-700.text-white
+   [:div.mx-auto.max-w-screen-xl.px-3.py-2.text-center.text-sm.font-semibold
+    "Biff 2 is in development. "
+    [:a.underline.hover:text-indigo-100
+     {:href "https://github.com/jacobobryant/biff2"}
+     "Try it out"] "."]])
+
 (defn base-html [ctx & body]
-  (apply common/base-html (update ctx :base/head concat head) body))
+  (apply common/base-html (update ctx :base/head concat head) announcement-banner body))
 
 (def hamburger-icon
   [:div.sm:hidden.cursor-pointer
