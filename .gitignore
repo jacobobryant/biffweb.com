@@ -7,3 +7,5 @@ public
 config.env
 /netlify/
 backup
+.clj-kondo/.cache
+.lsp

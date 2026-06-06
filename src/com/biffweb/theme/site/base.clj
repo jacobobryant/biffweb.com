@@ -24,7 +24,7 @@
    [:div.mx-auto.max-w-screen-xl.px-3.py-2.text-center.text-sm.font-semibold
     "Biff 2 is in development. "
     [:a.underline.hover:text-indigo-100
-     {:href "https://github.com/jacobobryant/biff2"}
+     {:href "https://github.com/jacobobryant/biff/tree/v2.x"}
      "Try it out"] "."]])
 
 (defn base-html [ctx & body]
