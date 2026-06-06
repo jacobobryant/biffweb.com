@@ -2,7 +2,7 @@
   (:require [com.platypub.util :as common]))
 
 (def head
-  [[:script {:src "https://unpkg.com/hyperscript.org@0.9.3"}]
+  [[:script {:src "/vendor/unpkg.com/hyperscript.org@0.9.3.js"}]
    [:script {:src "https://www.google.com/recaptcha/api.js"
              :async "async"
              :defer "defer"}]
@@ -16,7 +16,7 @@
                           (str "&family=" f)))
            :rel "stylesheet"}]
    [:link {:rel "stylesheet" :href "/css/prism.css"}]
-   [:link {:rel "stylesheet" :href "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"}]
+   [:link {:rel "stylesheet" :href "/vendor/cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"}]
    [:script {:src "/js/prism.js"}]])
 
 (defn base-html [ctx & body]

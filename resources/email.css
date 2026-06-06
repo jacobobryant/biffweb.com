@@ -16,6 +16,7 @@ body {
 .markdown-body h1 {
   font-size: 2em;
   margin: .67em 0;
+  color: black;
 }
 
 .markdown-body img {

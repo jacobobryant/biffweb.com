@@ -4,7 +4,7 @@ title: Create a project
 
 Requirements:
 
- - Java 11 or higher
+ - Java 17 or higher
  - [Clojure](https://clojure.org/guides/install_clojure)
 
 Run this command to create a new Biff project:

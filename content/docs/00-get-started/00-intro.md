@@ -18,8 +18,7 @@ See also: [Should you use Biff?](https://biffweb.com/p/should-you-use-biff/)
 ## About
 
 Biff is developed by myself, [Jacob O'Bryant](https://obryant.dev). I started it while I was a full-time entrepreneur,
-working on apps like [Yakread](https://yakread.com/) and [The Sample](https://thesample.ai/) (each of which is built
-with Biff and has 10-15k lines of code). See r/Clojure for
+working on apps like [Yakread](https://github.com/jacobobryant/yakread). See r/Clojure for
 [comments about Biff](https://www.reddit.com/r/Clojure/search/?q=biff&restrict_sr=1&type=comment).
 
 Biff is generously sponsored by [JUXT](https://www.juxt.pro/) and

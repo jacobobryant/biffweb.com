@@ -44,6 +44,10 @@
      [:div {:style {:padding "16px"
                     :background-color "white"}}
       [:div.markdown-body
+       [:h2 (:title post)]
+       [:p [:a {:href (str url "/p/" (:slug post) "/")
+                :style {:text-decoration "none"}}
+            "Read online"]]
        [:div [::h/unsafe-html (:html post)]]
        (space 32)
        [:p {:style {:font-size "85%"}}

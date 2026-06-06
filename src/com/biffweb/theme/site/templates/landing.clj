@@ -28,7 +28,7 @@
                   "Biff adds schema enforcement with Malli.")}
    {:icon "code"
     :title "htmx"
-    :content (str "Create rich, interactive UIs without leaving the backend. "
+    :content (str "Create interactive UIs without leaving the backend. "
                   "Throw in a dash of _hyperscript for light client-side scripting.")}
    {:icon "lock-regular"
     :title "Authentication"
@@ -128,7 +128,7 @@
                         rounded-full]
                :style {:background-color "rgba(0, 0, 0, 0.5)"
                        :box-shadow "0 0 20px black"}}
-         "Biff is a batteries-included web framework for Clojure. "
+         "Biff is a full-stack web framework for Clojure. "
          "Launch new projects quickly without getting bogged down in complexity later."]]]]]
 
     [:div {:style {:min-height "100vh"}
