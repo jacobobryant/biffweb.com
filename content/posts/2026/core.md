@@ -84,6 +84,6 @@ figures out what your components vector should be before you pass it to
 biff.core.
 
 *Plug: [my team is
-hiring](https://www.tyba.ai/careers/clojure-software-engineer/) for a senior
-software engineer, writing ClojureScript and Python mostly. We make modeling
-software for renewable energy projects.*
+hiring](https://jobs.ashbyhq.com/tyba/efd553f6-0e29-4827-af95-0fc41f063042?utm_source=5P6E9lPL4v)
+for a senior software engineer, writing ClojureScript and Python mostly. We make modeling software
+for renewable energy projects.*
