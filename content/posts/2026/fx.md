@@ -3,16 +3,10 @@ title: 'biff.fx: lightweight effects system'
 description: Turn your functions into pure state machines
 slug: fx
 image: https://biffweb.com/cards/fx.png
-published: 2026-06-16T10:00:00 AM
+published: 2026-06-16T10:20:00 AM
 ---
 
-I'm releasing a couple more Biff 2 libraries. The smaller one is
-[biff.config](https://github.com/jacobobryant/biff/tree/v2.x/libs/config) which
-provides a [biff.core](https://github.com/jacobobryant/biff/tree/v2.x/libs/core)
-component for Juxt's Aero configuration library. It's a drop-in replacement for
-the old com.biffweb/use-aero-config component, with some tweaks.
-
-The other library is
+I'm releasing another Biff 2 library:
 [biff.fx](https://github.com/jacobobryant/biff/tree/v2.x/libs/fx). It's a
 lightweight approach to removing effects from your application logic, which
 makes that logic easier to understand, test, and reuse.
@@ -65,3 +59,10 @@ describe control flow. One of the shapes that approach can take is:
 i.e. you make a state machine where the states are pure logic and effects happen
 in the transitions. And that's what
 [biff.fx](https://github.com/jacobobryant/biff/tree/v2.x/libs/fx) does.
+
+---
+
+*Plug: [my team is
+hiring](https://jobs.ashbyhq.com/tyba/efd553f6-0e29-4827-af95-0fc41f063042?utm_source=r2RjeVOa9N)
+for a senior software engineer, writing ClojureScript and Python mostly. We make modeling software
+for renewable energy projects.*

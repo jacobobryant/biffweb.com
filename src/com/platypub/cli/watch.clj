@@ -44,7 +44,7 @@
 
 (defn watch []
   (process/shell "npm install")
-  (future (process/shell "npx netlify dev --port 8080"))
+  (future (process/shell "npx netlify dev --internal-disable-edge-functions --port 8080"))
   (future (process/shell "npx tailwindcss -c resources/tailwind.config.js -i resources/tailwind.css -o public/css/main.css --watch"))
   (beholder/watch (debounce (fn [_]
                               (reload/reload ["src"])
