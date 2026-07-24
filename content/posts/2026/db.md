@@ -2,11 +2,9 @@
 title: Database adapters in Biff 2
 description: I've released biff.sqlite and biff.xtdb
 slug: db-adapters
-image:
-published: 2026-07-21T10:00:00 AM
+image: https://biffweb.com/cards/db.png
+published: 2026-07-23T07:30:00 PM
 ---
-
-TODO push latest changes and update links
 
 I've released two new Biff libraries, both database adapters:
 [biff.sqlite](https://github.com/jacobobryant/biff/tree/v2.x/libs/sqlite)
@@ -43,12 +41,11 @@ database adapter libraries like the two I've just released:
 - [`:biff.core/kv-list`](https://github.com/jacobobryant/biff/blob/v2.x/libs/core/docs/reference/schema.md#biffcorekv-list)
 
 And my two implementations:
-[sqlite](
-https://github.com/jacobobryant/biff/blob/4fa6e380275d412458c16623036729a386299cd7/libs/sqlite/src/com/biffweb/sqlite/impl/kv.clj)
+[sqlite](https://github.com/jacobobryant/biff/blob/b3abe5b13824af2f83f89ec31c63a430417ac457/libs/sqlite/src/com/biffweb/sqlite/impl/kv.clj)
 and
-[xtdb](https://github.com/jacobobryant/biff/blob/4fa6e380275d412458c16623036729a386299cd7/libs/xtdb/src/com/biffweb/xtdb/impl/kv.clj).
+[xtdb](https://github.com/jacobobryant/biff/blob/b3abe5b13824af2f83f89ec31c63a430417ac457/libs/xtdb/src/com/biffweb/xtdb/impl/kv.clj).
 These KV-store functions are exposed via a biff.core module, [for
-example](https://github.com/jacobobryant/biff/blob/4fa6e380275d412458c16623036729a386299cd7/libs/sqlite/src/com/biffweb/sqlite/impl/system.clj#L34).
+example](https://github.com/jacobobryant/biff/blob/b3abe5b13824af2f83f89ec31c63a430417ac457/libs/sqlite/src/com/biffweb/sqlite/impl/system.clj#L34).
 
 In general I try to avoid adding layers to things unnecessarily, so it took a
 little thinking to arrive at this solution. My main thought was that I'm
@@ -64,8 +61,10 @@ so a key-value interface is sufficient. And that's an easy interface for
 database adapters to implement.
 
 The second biggest interface-type-thing is that both adapters come with
-`make-resolvers` functions ([sqlite] / [xtdb]) which generate a set of
-[biff.graph resolvers] for the tables in your application schema.
+`make-resolvers` functions
+([sqlite](https://github.com/jacobobryant/biff/blob/b3abe5b13824af2f83f89ec31c63a430417ac457/libs/sqlite/src/com/biffweb/sqlite/impl/resolver.clj#L31) / [xtdb](https://github.com/jacobobryant/biff/blob/b3abe5b13824af2f83f89ec31c63a430417ac457/libs/xtdb/src/com/biffweb/xtdb/impl/resolver.clj#L23)) which generate a set of
+[biff.graph
+resolvers](https://github.com/jacobobryant/biff/tree/v2.x/libs/graph#defining-resolvers) for the tables in your application schema.
 
 # The features
 
@@ -104,3 +103,10 @@ straightforward to implement an adapter for whatever database you want to use. I
 will probably only maintain the SQLite and XTDB adapters, but I might publish
 some as-is code for other databases which could be picked up and maintained
 anyone who so chooses.
+
+---
+
+*Plug: [my team is
+hiring](https://jobs.ashbyhq.com/tyba/efd553f6-0e29-4827-af95-0fc41f063042?utm_source=5P6E9lPL4v)
+for a senior software engineer, writing ClojureScript and Python. We make
+optimization software for clean energy projects.*

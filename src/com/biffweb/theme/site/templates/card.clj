@@ -11,7 +11,7 @@
                  :style {:max-height "60px"}
                  :class '[opacity-90]}]]
     [:div.grow]
-    [:h1.font-bold.leading-tight.opacity-90.text-white
+    [:h1.roboto.font-bold.leading-tight.opacity-90.text-white
      {:class "text-[6rem]"}
      (:title post)]
     [:div.grow]]])
