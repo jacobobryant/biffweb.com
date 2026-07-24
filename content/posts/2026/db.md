@@ -19,9 +19,9 @@ apps even if they aren't using Biff.
 So far, modifying a Biff app to use a different database than the default has
 been [kind of
 inconvenient](https://biffweb.com/p/how-to-use-postgres-with-biff/), as a result
-of [philosophy](https://biffweb.com/p/philosophy-of-biff/) about modularity for
+of my [philosophy](https://biffweb.com/p/philosophy-of-biff/) about modularity for
 Biff 1. The ability to swap out defaults was more of an escape hatch so that
-starting out with Biff doesn't mean your locked into all its choices forever. So
+starting out with Biff doesn't mean you're locked into all its choices forever. So
 that meant if you wanted to swap out the database, you had to, for example, copy
 and paste all of Biff's sign-in-via-email code and rewrite the queries.
 
