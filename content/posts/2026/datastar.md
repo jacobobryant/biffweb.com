@@ -1,9 +1,9 @@
 ---
 title: biff.datastar, biff.ring
-description: The releases will continue until morale improves
+description: Make reactive, server-side-rendered web UIs with Datastar
 slug: datastar
 image: https://biffweb.com/cards/datastar.png
-published: 2026-08-11T10:00:00 AM
+published: 2026-08-10T08:15:00 PM
 ---
 
 A couple more Biff 2 libraries are out the door:
@@ -28,6 +28,6 @@ documentation that ties all the libraries together, not just documentation for
 the individual libraries (which I've been writing as I go).
 
 I'm still shooting to have all that released before the conj, which is... coming
-up.
-
---Jacob
+up. On the bright side, in the window of time between writing the first draft of
+this post and sending it out, I've already finished editing the biff.tasks code
+and only need to write the documentation. So I'd say we're well on our way.
