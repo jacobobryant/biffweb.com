@@ -76,7 +76,10 @@
     (util/read-md-file (util/read-config) file)))
 
 (defn- temp-card-file []
-  (.getAbsolutePath (java.io.File/createTempFile "biff-card-" ".html")))
+  ;; Snap-packaged browsers can't read the system temp directory. Keep the
+  ;; temporary page under the project so they can load its file:// URL.
+  (.getAbsolutePath
+   (java.io.File/createTempFile "biff-card-" ".html" (io/file "."))))
 
 (defn- screenshot-command [{:keys [engine path]} html-path output]
   (case engine

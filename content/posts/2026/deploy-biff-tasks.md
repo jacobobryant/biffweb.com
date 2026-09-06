@@ -4,7 +4,7 @@ tags:
 - video
 slug: deploy-biff-tasks
 title: Deploy an app with biff.tasks
-image: https://biffweb.com/images/biff-tasks-deploy.png
+image: https://biffweb.com/cards/deploy-biff-tasks.png
 published: 2026-08-18T09:00:00 AM
 content-type: markdown
 ---
@@ -14,7 +14,5 @@ content-type: markdown
 <br>
 
 I demonstrate how to provision a new Ubuntu server on DigitalOcean and deploy a hello-world Clojure web app to it with biff.tasks.
-
-An explanation of how I'm using Pathom to keep Yakread's code organized. Also some slight schema modifications.
 
 - [biff.tasks](https://github.com/jacobobryant/biff/blob/v2.x/libs/tasks)
