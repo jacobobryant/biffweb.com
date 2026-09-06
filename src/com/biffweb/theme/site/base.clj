@@ -19,30 +19,24 @@
    [:link {:rel "stylesheet" :href "/vendor/cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"}]
    [:script {:src "/js/prism.js"}]])
 
-(def announcement-banner
-  [:div.bg-indigo-700.text-white
+(def biff-2-docs-href
+  "https://github.com/jacobobryant/biff/blob/master/README.md")
+
+(def legacy-docs-banner
+  [:div.bg-yellow-300.text-yellow-950
    [:div.mx-auto.max-w-screen-xl.px-3.py-2.text-center.text-sm.font-semibold
-    "Biff 2 is in development. "
-    [:a.underline.hover:text-indigo-100
-     {:href "https://github.com/jacobobryant/biff/tree/v2.x"}
-     "Try it out"] "."]])
+    "You are viewing the legacy documentation for Biff 1.x. View the "
+    [:a.underline.hover:text-yellow-700
+     {:href biff-2-docs-href}
+     "Biff 2 documentation"] "."]])
 
 (defn base-html [ctx & body]
-  (apply common/base-html (update ctx :base/head concat head) announcement-banner body))
+  (apply common/base-html (update ctx :base/head concat head) body))
 
-(def hamburger-icon
-  [:div.sm:hidden.cursor-pointer
-   {:_ "on click toggle .hidden on #nav-menu"}
-   (for [_ (range 3)]
-     [:div.bg-white
-      {:class "h-[4px] w-[30px] my-[6px]"}])])
-
-(defn nav-options [{:keys [docs-href
-                           hide-home]
-                    :or {docs-href "/docs/"}}]
+(defn nav-options [{:keys [hide-home]}]
   (concat (when-not hide-home
             [["Home" "/"]])
-          [["Docs" docs-href]
+          [["Docs" biff-2-docs-href]
            ["News" "/newsletter/"]
            ["GitHub" "https://github.com/jacobobryant/biff"]]))
 

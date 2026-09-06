@@ -119,6 +119,7 @@
      (assoc opts
             :base/title (str (:title doc) " | Biff")
             :post doc)
+     base/legacy-docs-banner
      [:div.grow.flex.flex-col.bg-stone-200
       (base/navbar (assoc opts :class width-class))
       [:div.mx-auto.sm:px-3.py-3.flex-grow.w-full

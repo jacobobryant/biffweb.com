@@ -9,7 +9,8 @@
                   "/docs/essays/why-i-like-clojure/" "/p/why-i-like-clojure/"
                   "/p/how-to-use-re-frame-with-biff/" "/p/how-to-use-reframe-with-biff/"
                   "/docs/get-started/should-you-use-biff/" "/p/should-you-use-biff/"
-                  "/docs/reference/bb-tasks/" "/docs/reference/tasks/"}
+                  "/docs/reference/bb-tasks/" "/docs/reference/tasks/"
+                  "/docs-v1/" "/docs/get-started/intro/"}
  :site/primary-color "#1c1917"
  :site/accent-color "#4338ca"
  :site/author-name "Jacob O'Bryant"
