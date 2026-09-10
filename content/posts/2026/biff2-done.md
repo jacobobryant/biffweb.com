@@ -2,8 +2,8 @@
 title: Biff 2.0 is released
 description: hashtag so glad that's over
 slug: biff2-released
-image: https://biffweb.com/cards/biff2-released.png
-published: 2026-09-09T09:00:00 AM
+image: https://biffweb.com/cards/biff2-done.png
+published: 2026-09-10T09:00:00 AM
 ---
 
 Last April I outlined [some changes](https://biffweb.com/p/biff2/) I had planned
