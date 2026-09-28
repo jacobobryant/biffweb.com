@@ -23,4 +23,5 @@
       [:div.h-2]
       [:div [::h/unsafe-html (:html post)]]]]
     (base/subscribe-form-mild {:sitekey site-key
+                               :dev (:dev opts)
                                :show-disclosure true})]))

@@ -9,6 +9,7 @@
     (base/navbar opts)
     [:div.h-4]
     (base/subscribe-form-mild {:bg :light
+                               :dev (:dev opts)
                                :sitekey site-key
                                :big true})
     [:div.max-w-prose.mx-auto.sm:px-3.text-lg

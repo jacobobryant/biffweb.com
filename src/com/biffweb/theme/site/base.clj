@@ -78,8 +78,22 @@
    "recaptcha-failed" "reCAPTCHA check failed. Try again."
    "unknown" "There was an unexpected error. Try again."})
 
-(defn subscribe-form-mild [{:keys [show-disclosure sitekey big]}]
-  [:div.flex.flex-col.items-center.text-center.px-3
+(defn subscribe-form-mild [{:keys [show-disclosure sitekey big dev]}]
+  [:<>
+   [:iframe {:title "Subscribe to Biff: The Newsletter"
+             :src "https://red.yakread.com/subscribe/AaDecPgqe2S_E7_qAW1tGA"
+             :scrolling "no"
+             :style "display:block;width:100%;height:260px;border:0;overflow:hidden"}]
+   [:script
+    (str "(function(){var frame=document.currentScript.previousElementSibling;"
+         "var origin=new URL(frame.src).origin;"
+         "window.addEventListener('message',function(event){"
+         "if(event.source===frame.contentWindow&&event.origin===origin&&"
+         "event.data&&event.data.type==='platypub:resize'&&"
+         "Number.isFinite(event.data.height)){"
+         "frame.style.height=Math.max(1,event.data.height)+'px';"
+         "}});})();")]]
+  #_[:div.flex.flex-col.items-center.text-center.px-3
    [:div.h-5]
    [:div.font-bold {:class (when big "text-lg")} "Sign up for Biff: The Newsletter"]
    [:div " Announcements, blog posts,  " [:span.italic "et cetera et cetera"] "."]
