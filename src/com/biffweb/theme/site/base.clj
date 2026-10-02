@@ -81,7 +81,8 @@
 (defn subscribe-form-mild [{:keys [show-disclosure sitekey big dev]}]
   [:<>
    [:iframe {:title "Subscribe to Biff: The Newsletter"
-             :src "https://red.yakread.com/subscribe/AaDecPgqe2S_E7_qAW1tGA"
+             :src (str "https://red.yakread.com/subscribe/"
+                       "AaDecPgqe2S_E7_qAW1tGA?embed=1")
              :scrolling "no"
              :style "display:block;width:100%;height:260px;border:0;overflow:hidden"}]
    [:script
