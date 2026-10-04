@@ -93,7 +93,7 @@ typically doing standard request/response rather than this SSE thing. The
 downside is that your application code has to do more stuff. You click a button,
 htmx triggers a POST request, then the backend request handler has to know what
 chunk(s) of html needs to be re-rendered and where those chunks should be
-inserted in the DOM. Which is kind of imperative! You know longer have this dead
+inserted in the DOM. Which is kind of imperative! You no longer have this dead
 simple "the page is rendered by a single function" thing.
 
 So when should you use Datastar? My take: I don't think the downsides of
