@@ -81,8 +81,7 @@
 (defn subscribe-form-mild [{:keys [show-disclosure sitekey big dev]}]
   [:<>
    [:iframe {:title "Subscribe to Biff: The Newsletter"
-             :src (str "https://red.yakread.com/subscribe/"
-                       "AaDecPgqe2S_E7_qAW1tGA?embed=1")
+             :src "https://platypub.com/subscribe/AaDkA0Aoc8GXtHano9ZaZw"
              :scrolling "no"
              :style "display:block;width:100%;height:260px;border:0;overflow:hidden"}]
    [:script
@@ -93,65 +92,4 @@
          "event.data&&event.data.type==='platypub:resize'&&"
          "Number.isFinite(event.data.height)){"
          "frame.style.height=Math.max(1,event.data.height)+'px';"
-         "}});})();")]]
-  #_[:div.flex.flex-col.items-center.text-center.px-3
-   [:div.h-5]
-   [:div.font-bold {:class (when big "text-lg")} "Sign up for Biff: The Newsletter"]
-   [:div " Announcements, blog posts,  " [:span.italic "et cetera et cetera"] "."]
-   [:div.h-5]
-   [:script "function onSubscribe(token) { document.getElementById('recaptcha-form').submit(); }"]
-   [:form#recaptcha-form.w-full.max-w-md
-    {:action "/.netlify/functions/subscribe"
-     :method "POST"}
-    [:input {:type "hidden"
-             :name "href"
-             :_ "on load set my value to window.location.href"}]
-    [:input {:type "hidden"
-             :name "referrer"
-             :_ "on load set my value to document.referrer"}]
-    [:div.flex.flex-col.sm:flex-row.gap-2
-     [:input {:class '[rounded
-                       shadow
-                       border-stone-300
-                       focus:ring-indigo-700
-                       focus:border-indigo-700
-                       flex-grow
-                       text-black]
-              :type "email"
-              :name "email"
-              :placeholder "Enter your email"
-              :_ (str "on load "
-                      "make a URLSearchParams from window.location.search called p "
-                      "then set my value to p.get('email')")}]
-     [:button {:class '[bg-indigo-700
-                        hover:bg-indigo-600
-                        text-white
-                        py-2
-                        px-4
-                        rounded
-                        shadow
-                        g-recaptcha]
-               :data-sitekey sitekey
-               :data-callback "onSubscribe"
-               :data-action "subscribe"
-               :type "submit"}
-      "Subscribe"]]
-    (for [[code explanation] errors]
-      [:div.text-black.hidden.font-semibold.mt-1
-       {:_ (str "on load if window.location.search.includes('error="
-                code
-                "') remove .hidden from me")}
-       explanation])
-    [:div.h-3]
-    [:div.text-center
-     [:a.text-black.hover:text-indigo-700.underline
-      {:href "/feed.xml"} "RSS feed"]
-     (when-not big
-       [:<>
-        [:span.w-4.inline-block " · "]
-        [:a.text-black.hover:text-indigo-700.underline
-         {:href "/newsletter/"} "Archive"]])]]
-   [:div.h-12]
-   (when show-disclosure
-     [:div.sm:text-center.text-sm.leading-snug.opacity-75.w-full.mb-3
-      (common/recaptcha-disclosure {:link-class "underline"})])])
+         "}});})();")]])
