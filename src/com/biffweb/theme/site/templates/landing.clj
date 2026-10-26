@@ -17,10 +17,9 @@
    {:icon "server-regular"
     :title "Deployment tooling"
     :content "Provision an Ubuntu VPS or deploy with an Uberjar/Docker container."}
-   {:icon "terminal"
-    :title "REPL made easy"
-    :content (str "Changes are evaluated whenever you save a file. "
-                  "Even an LLM can figure it out.")}
+   {:icon "robot"
+    :title "Skills for LLMs"
+    :content "Get idiomatic Biff code on the first try."}
    {:icon "file-lines-regular"
     :title "Meticulously documented"
     :content "Hand-written and comprehensive."}])
